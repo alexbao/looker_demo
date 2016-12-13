@@ -1,16 +1,6 @@
 view: columns {
   sql_table_name: information_schema.columns ;;
 
-  dimension: collation_name {
-    type: string
-    sql: ${TABLE}.collation_name ;;
-  }
-
-  dimension: collation_schema {
-    type: string
-    sql: ${TABLE}.collation_schema ;;
-  }
-
   dimension: column_name {
     type: string
     sql: ${TABLE}.column_name ;;
@@ -34,11 +24,6 @@ view: columns {
   dimension: dtd_identifier {
     type: string
     sql: ${TABLE}.dtd_identifier ;;
-  }
-
-  dimension: interval_type {
-    type: string
-    sql: ${TABLE}.interval_type ;;
   }
 
   dimension: numeric_precision {
@@ -76,7 +61,6 @@ view: columns {
     fields: [
       table_name,
       column_name,
-      collation_name,
       domain_name,
       udt_name
     ]
