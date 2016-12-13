@@ -1,36 +1,9 @@
 connection: "dev_metrics"
+persist_for: "6 hours"     # persist all query results for 1 hour
 
-view: routines {
-  sql_table_name: information_schema.columns ;;
-  # derived_table: {        ## limit volume of data to help with performance
-  #   sql:
-  #     SELECT data FROM public.raw_logs
-  #     LIMIT 1000000
-  #     OFFSET 50000000;;
-  # }
+include: "*.view.lkml"
+include: "*.dashboard.lkml"
 
-  dimension: table_name {
-    type:  string
-    sql: ${TABLE}.table_name;;
-  }
-
-  dimension: column_name {
-    type:  string
-    sql: ${TABLE}.column_name;;
-  }
-
-  dimension: position {
-    type:  number
-    sql: ${TABLE}.ordinal_position;;
-  }
-
-  dimension: name {
-    type:  string
-    sql: ${TABLE}.udt_name;;
-  }
-
-  dimension: identifier {
-    type:  number
-    sql: ${TABLE}.dtd_identifier;;
-  }
+explore: columns {
+  description: "Test columns table with structured data"
 }
