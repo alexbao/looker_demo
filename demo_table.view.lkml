@@ -1,4 +1,4 @@
-view: columns {
+view: demo_table {
   sql_table_name: information_schema.columns ;;
 
   dimension: column_name {
